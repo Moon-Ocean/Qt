@@ -291,7 +291,6 @@ bool QWindowsNativeInterface::isTabletMode()
 void RefreshMonitorsInformation()
 {
     QWindowsContext *ctx = QWindowsContext::instance();
-    qDebug() << "ctx->screenManager().handleScreenChanges()";
     QWindowsWindow::displayChanged();
     ctx->screenManager().handleScreenChanges();
 }
