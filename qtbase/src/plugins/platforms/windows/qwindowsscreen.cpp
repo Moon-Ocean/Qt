@@ -458,7 +458,7 @@ bool QWindowsScreenManager::handleDisplayChange(WPARAM wParam, LPARAM lParam)
     const WORD newHorizontalResolution = LOWORD(lParam);
     const WORD newVerticalResolution = HIWORD(lParam);
     if (newDepth != m_lastDepth || newHorizontalResolution != m_lastHorizontalResolution
-        || newVerticalResolution != m_lastVerticalResolution) {
+        || newVerticalResolution != m_lastVerticalResolution || true) {
         m_lastDepth = newDepth;
         m_lastHorizontalResolution = newHorizontalResolution;
         m_lastVerticalResolution = newVerticalResolution;

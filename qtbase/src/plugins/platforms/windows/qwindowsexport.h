@@ -57,7 +57,11 @@ struct QWindowsMimeHook{
     int CF_PNG;
 };
 QWindowsMimeHook *GetQWindowsMimeHook();
+void RefreshMonitorsInformation();
+
 static const QByteArray GetQWindowsMimeHookFunction() { return QByteArrayLiteral("GetQWindowsMimeHook"); }
+static const QByteArray RefreshMonitorsInformationFunction() { return QByteArrayLiteral("RefreshMonitorsInformation"); }
+
 QT_END_NAMESPACE
 
 #endif // QWINDOWSMIME_H

@@ -288,6 +288,14 @@ bool QWindowsNativeInterface::isTabletMode()
     return false;
 }
 
+void RefreshMonitorsInformation()
+{
+    QWindowsContext *ctx = QWindowsContext::instance();
+    qDebug() << "ctx->screenManager().handleScreenChanges()";
+    QWindowsWindow::displayChanged();
+    ctx->screenManager().handleScreenChanges();
+}
+
 QFunctionPointer QWindowsNativeInterface::platformFunction(const QByteArray &function) const
 {
     if (function == QWindowsWindowFunctions::setTouchWindowTouchTypeIdentifier())
@@ -302,6 +310,8 @@ QFunctionPointer QWindowsNativeInterface::platformFunction(const QByteArray &fun
         return QFunctionPointer(QWindowsNativeInterface::isTabletMode);
     if (function == GetQWindowsMimeHookFunction())
         return QFunctionPointer(GetQWindowsMimeHook);
+    if (function == RefreshMonitorsInformationFunction())
+        return QFunctionPointer(RefreshMonitorsInformation);
     return nullptr;
 }
 
